@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+ int main() {
+
+     float loan,years,rate,monthly_payment, monthly_rate, interest, principal, balance;
+     printf("Loan Amount: ");
+     scanf("%f", &loan);
+       if ( loan > 0) {
+         printf("Number of Years: ");
+         scanf("%f", &years);
+       }if ( years > 0 ){
+         printf("Annual Interest Rate:  ");
+         scanf("%f", &rate);
+      }else {
+         printf("Invalid Input");}
+
+      monthly_rate = rate/1200;
+      monthly_payment = loan * monthly_rate / (1 - 1 /pow (1 + monthly_rate, years * 12));
+        printf("================================\n");
+
+        printf("\nMonthly Payment: %.2f\n", monthly_payment);
+
+     printf("Total Payment: %.2f\n", ( monthly_payment * 12) * years);
+     balance = loan, principal, interest;
+     printf("\nPayment#   \tInterest  \tTotal Principal   \tBalance\n");
+       for (float i = 1; i <= years * 12; i++) {
+                         interest = monthly_rate * balance;
+                         principal = monthly_payment - interest;
+                         balance = loan - principal;
+                         printf("\n %.0f \t\t%.2f \t\t%.2f \t\t\t1%.2f", i, interest, principal, balance);
+
+       }
+
+         getchar();
+          return 0;
+
+ }
